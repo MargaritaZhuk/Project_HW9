@@ -1,5 +1,19 @@
 plugins {
     id 'java'
+    id 'io.qameta.allure' version '2.12.0'
+}
+
+allure {
+    report {
+        version.set("2.30.0") //версия Allure Report (https://github.com/allure-framework/allure2)
+    }
+    adapter {
+        frameworks {
+            junit5 {
+                adapterVersion.set("2.30.0") //версия Allure JUnit5 (https://github.com/allure-framework/allure-java)
+            }
+        }
+    }
 }
 
 group = 'zhuk.margarita'
@@ -10,9 +24,10 @@ repositories {
 }
 
 dependencies {
-    testImplementation platform('org.junit:junit-bom:5.10.0')
-    testImplementation 'org.junit.jupiter:junit-jupiter'
-    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+        testImplementation('org.junit.jupiter:junit-jupiter:5.10.0',
+                'com.codeborne:selenide:7.11.0',
+                'org.slf4j:slf4j-simple:2.0.7',
+                'io.qameta.allure:allure-selenide:2.30.0')
 }
 
 test {
