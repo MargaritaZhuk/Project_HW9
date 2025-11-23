@@ -18,6 +18,11 @@ public class IssueInGithubSteps {
     public static ElementsCollection issueNumber = $$("[data-testid=list-row-repo-name-and-number]");
 
 
+    @Attachment(value = "Screenshot", type = "image/png", fileExtension = "png")
+    public byte[] takeScreenshot() {
+        return ((TakesScreenshot) WebDriverRunner.getWebDriver()).getScreenshotAs(OutputType.BYTES);
+    }
+
     @Step("Открыть страницу")
     public void openPage() {
         open(REPOSITORY);
@@ -36,10 +41,6 @@ public class IssueInGithubSteps {
     @Step("Проверить, что есть ISSUE с указанным названием")
     public void checkIssueTitle(){
        issueTitleSelector.shouldHave(exactText(issue));
-    }
-
-    @Attachment(value = "Screenshot", type = "image/png", fileExtension = "png")
-    public byte[] takeScreenshot() {
-        return ((TakesScreenshot) WebDriverRunner.getWebDriver()).getScreenshotAs(OutputType.BYTES);
+       takeScreenshot();
     }
 }
