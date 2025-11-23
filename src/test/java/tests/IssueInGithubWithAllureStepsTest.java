@@ -20,6 +20,5 @@ public class IssueInGithubWithAllureStepsTest extends TestBase {
         steps.clickIssueTab();
         steps.checkIssueNumber();
         steps.checkIssueTitle();
-        steps.takeScreenshot();
     }
 }

@@ -32,7 +32,6 @@ public class IssueInGithubLambdaTest extends TestBase {
 
         step("Проверить, что есть ISSUE с указанным названием", () -> {
             steps.checkIssueTitle();
-            steps.takeScreenshot();
         });
     }
 }
