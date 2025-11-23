@@ -14,11 +14,6 @@ import static com.codeborne.selenide.Selenide.open;
 @DisplayName("Тест с логгером селенида")
 public class IssueInGitHubSelenideTest extends TestBase {
 
-    static {
-        SelenideLogger.addListener("allure",
-                new AllureSelenide().screenshots(true).savePageSource(true));
-    }
-
     @Test
     @DisplayName("Аллюр селенид")
     @Feature("Поиск issue в репозитории")
